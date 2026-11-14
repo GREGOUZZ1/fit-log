@@ -1,6 +1,6 @@
 # Fit Log
 
-Carnet de musculation en français, conçu pour une utilisation sur téléphone ou ordinateur dans une salle comme Basic-Fit. Le catalogue contient 100 exercices. Les fiches sur machine et à la poulie indiquent le nom de l’appareil et montrent une illustration schématique. Le matériel varie selon le club.
+Carnet de musculation en français, conçu pour une utilisation sur téléphone ou ordinateur dans une salle comme Basic-Fit. Le catalogue contient 100 exercices et chaque fiche situe les muscles ciblés sur des silhouettes de face et de dos. Les fiches sur machine et à la poulie indiquent le nom de l’appareil et affichent une photo externe, avec un lien vers sa source. La légende distingue les photos prises en club des modèles Matrix Fitness présentés à titre de repère. Le matériel varie selon le club.
 
 ## Démarrage
 

@@ -89,19 +89,23 @@ function renderCatalog() {
 
 function renderCards() {
   const normalize = text => text.toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu,'');
-  const matches = exercises.filter(ex => (muscle==='Tous'||ex.group===muscle) && normalize([ex.name,ex.muscles,ex.equipment,machines[ex.machine]?.[0]].join(' ')).includes(normalize(query.trim())));
+  const matches = exercises.filter(ex => (muscle==='Tous'||ex.group===muscle) && normalize([ex.name,ex.muscles,ex.equipment,machines[ex.machine]].join(' ')).includes(normalize(query.trim())));
   main.querySelector('#count').textContent = matches.length+' exercice'+(matches.length===1?'':'s');
   main.querySelector('#cards').innerHTML = matches.map(ex => `<article class="card"><div class="card-top"><span class="exercise-icon" aria-hidden="true">${icons[ex.group]}</span><span class="tag">${ex.equipment}</span></div>
-    <h3>${ex.name}</h3><p>${ex.muscles}</p>${ex.machine ? '<p class="machine-name">'+machines[ex.machine][0]+'</p>' : ''}<div class="card-actions"><button data-action="details" data-id="${ex.id}">Voir la technique</button>
+    <h3>${ex.name}</h3><p>${ex.muscles}</p>${ex.machine ? '<p class="machine-name">'+machines[ex.machine]+'</p>' : ''}<div class="card-actions"><button data-action="details" data-id="${ex.id}">Voir la technique</button>
     <button class="pick" data-action="pick" data-id="${ex.id}" aria-label="${state.ids.includes(ex.id)?'Retirer':'Ajouter'} ${ex.name}" aria-pressed="${state.ids.includes(ex.id)}">${state.ids.includes(ex.id)?'✓':'+'}</button></div></article>`).join('') || '<p class="empty">Aucun exercice trouvé.</p>';
 }
 
 function showDetails(ex) {
   details.innerHTML = `<form method="dialog"><button aria-label="Fermer">×</button></form><span class="tag">${ex.equipment}</span>
-  <h2>${ex.name}</h2>${ex.machine ? `<figure class="machine-figure"><img src="${machineImage(ex.machine)}" alt="Illustration de l’appareil"><figcaption>${machines[ex.machine][0]}</figcaption></figure>` : ''}
-  <p><strong>Muscles ciblés</strong><br>${ex.muscles}</p><p><strong>Comment faire</strong><br>${ex.how}</p>
+  <h2 id="exercise-dialog-title">${ex.name}</h2><div class="exercise-visuals${ex.machine?' has-machine':''}">
+  <section><h3>Muscles ciblés</h3>${muscleMap(ex.muscles)}</section>
+  ${ex.machine ? `<section><h3>Appareil</h3>${machineFigure(ex.machine)}</section>` : ''}</div>
+  <p><strong>Comment faire</strong><br>${ex.how}</p>
   <p><strong>Récupération suggérée</strong><br>${ex.rest} secondes entre les séries</p><button type="button" class="primary" data-action="rest" data-id="${ex.id}">Démarrer le chrono</button>`;
   details.showModal();
+  const photo = details.querySelector('.machine-photo');
+  photo?.addEventListener('error',()=>{ photo.hidden = true; details.querySelector('.photo-fallback').hidden = false; },{once:true});
 }
 
 function newExercise(id) {
