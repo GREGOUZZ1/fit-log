@@ -11,14 +11,104 @@ h2{font:800 clamp(1.8rem,4vw,2.5rem)/1 var(--title);margin:0}h3{font-size:1.12re
 .machine-figure img{display:block;width:100%;height:auto;background:#efede3}
 .machine-figure figcaption{padding:9px 12px 0;font-weight:700}
 .card .machine-name{color:var(--dark-orange);font-weight:700}
-.exercise-visuals{display:grid;gap:15px;align-items:start}.exercise-visuals.has-machine{grid-template-columns:repeat(2,minmax(0,1fr))}
-#details{width:min(710px,calc(100% - 26px))}
-.muscle-map{margin:13px 0 0;padding:9px 10px;border:1px solid var(--line);background:#f6f4ec;border-radius:10px}
-.muscle-views{display:grid;grid-template-columns:1fr 1fr;gap:5px;text-align:center;font-size:.8rem;font-weight:700}
-.muscle-views svg{display:block;width:100%;max-width:102px;margin:auto}
-.body-outline{fill:#d6d4ca;stroke:#777972;stroke-width:1.2;stroke-linejoin:round}
-.muscle-region{fill:#c4c3b9;stroke:#f6f4ec;stroke-width:.8}.muscle-region.is-target{fill:#e85827;stroke:#982d0b;stroke-width:.9}
-.muscle-map figcaption{margin-top:9px;font-size:.87rem}.muscle-map figcaption i{display:inline-block;width:.72em;height:.72em;margin-right:6px;border-radius:3px;background:#e85827}
+.exercise-visuals {
+  display: grid;
+  gap: 16px;
+  align-items: start;
+}
+.exercise-visuals.has-machine {
+  grid-template-columns: minmax(0, 1.18fr) minmax(0, 1fr);
+}
+#details {
+  width: min(760px, calc(100% - 26px));
+}
+.muscle-map {
+  margin: 13px 0 0;
+  overflow: hidden;
+  background: #f3f5f5;
+  border: 1px solid #dfe5e5;
+  border-radius: 12px;
+}
+.muscle-views {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.muscle-view {
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: 2px;
+  min-width: 0;
+  padding: 11px 4px 10px;
+  background: radial-gradient(ellipse at 50% 45%, #fff 2%, transparent 76%);
+}
+.muscle-view + .muscle-view {
+  border-left: 1px solid #e1e6e6;
+}
+.muscle-view svg {
+  display: block;
+  width: 100%;
+  max-width: 151px;
+  height: auto;
+}
+.muscle-view-label {
+  color: #4d595b;
+  font-size: .82rem;
+  font-weight: 700;
+}
+.body-outline {
+  stroke: #576267;
+  stroke-width: 6;
+  stroke-linejoin: round;
+}
+.muscle-region {
+  fill-opacity: .27;
+  stroke: #607177;
+  stroke-opacity: .53;
+  stroke-width: 4;
+  stroke-linejoin: round;
+}
+.muscle-region:not(.is-target) {
+  fill: #829095;
+}
+.muscle-region.is-target {
+  fill-opacity: 1;
+  stroke: #a94222;
+  stroke-opacity: .95;
+  stroke-width: 5.5;
+}
+.muscle-contour {
+  fill: none;
+  stroke: #57666c;
+  stroke-opacity: .33;
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+.muscle-legend {
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+  margin: 0;
+  padding: 11px 13px;
+  border-top: 1px solid #dfe5e5;
+  background: #fbfcfc;
+  color: #303a3d;
+  font-size: .88rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.muscle-swatch {
+  display: inline-block;
+  flex: 0 0 .75em;
+  height: .75em;
+  border-radius: 3px;
+  background: #f27a42;
+  border: 1px solid #aa4223;
+}
 .machine-figure .photo-source{display:inline-block;margin-top:5px;font-size:.78rem}.machine-figure .photo-credit{display:block;font-size:.78rem;color:var(--muted);font-weight:400}
 .machine-figure .machine-photo{height:220px;object-fit:contain;background:#fff}.machine-figure [hidden]{display:none}.photo-fallback{padding:12px;margin:0}
-@media(max-width:520px){.exercise-visuals.has-machine{grid-template-columns:1fr}}
+@media (max-width: 520px) {
+  #details { padding: 16px; }
+  .exercise-visuals.has-machine { grid-template-columns: 1fr; }
+  .muscle-view svg { max-width: 112px; }
+}

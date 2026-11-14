@@ -16,3 +16,7 @@ Les séances et brouillons sont conservés dans le navigateur de l’appareil ut
 ## Estimation des calories
 
 L’estimation concerne la séance entière et utilise la formule `MET × 3,5 × poids en kg × durée en min ÷ 200`. Les facteurs de 3,5 (modérée) et 6 (soutenue) viennent du [2024 Adult Compendium of Physical Activities](https://pacompendium.com/adult-compendium/).
+
+## Illustrations anatomiques
+
+Les tracés des silhouettes sont adaptés du projet [MuscleMap](https://github.com/Jsplice/MuscleMap) sous [licence MIT](LICENSE-MuscleMap.txt). Fit Log ajoute les contours et les zones de surbrillance adaptées à son catalogue.
