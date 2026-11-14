@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#141615">
+  <meta name="description" content="Carnet de musculation avec 100 exercices, machines illustrées, récupération chronométrée et graphiques de progression.">
+  <title>Fit Log · Carnet de musculation</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="machines.js"></script>
+  <script defer src="extra-exercises.js"></script>
+  <script defer src="exercises.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <header class="bar">
+    <div class="shell top">
+      <a class="brand" href="#exercices"><span class="logo" aria-hidden="true">↗</span> FIT<span>LOG</span></a>
+      <nav aria-label="Navigation principale">
+        <a href="#exercices">Exercices</a><a href="#seances">Mes séances</a><a href="#progression">Progression</a>
+      </nav>
+    </div>
+  </header>
+  <main class="shell" id="main"></main>
+  <aside id="timer" class="timer" hidden></aside>
+  <dialog id="details"></dialog>
+  <p id="notice" class="notice" role="status"></p>
+  <footer class="shell footer">Fit Log · Carnet indépendant pour tes entraînements en salle.</footer>
+</body>
+</html>
